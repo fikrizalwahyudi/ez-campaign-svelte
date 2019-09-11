@@ -4,6 +4,7 @@
 			return { posts };
 		});
 	}
+	
 </script>
 
 <script>
@@ -31,9 +32,10 @@
 		<li><a rel='prefetch' href='persetujuan_nasabah/informasi-pengecualian'>Informasi Pengecualian</a></li>
 	</ul>
 </div>
+
 	<p class=" text-justify mt-5">“Saya dengan ini menyetujui perubahan Polis sesuai dengan Manfaat Kesehatan yang tertera pada penawaran ini, dan akan diproses tanpa melalui permintaan pemeriksaan kesehatan jika status Polis tetap aktif serta sesuai dengan syarat dan ketentuan.”</p>
 	<p class=" text-justify mt-5">Klik Setuju untuk pengajuan perubahan Polis ini</p>
-<navbar  class="navbar bg-light fixed-bottom">
+<navbar  class="navbar bg-white fixed-bottom shadow-lg">
 	<div class="col-12">
 		
 		<small class="font-italic font-weight-smal mb-2">Penawaran ini berlaku hingga dd-mm-yy pukul hh:mm.</small>
