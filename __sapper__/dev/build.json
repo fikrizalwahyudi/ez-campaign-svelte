@@ -1,0 +1,19 @@
+{
+  "bundler": "webpack",
+  "shimport": null,
+  "assets": {
+    "generatepdf": "d613bf199c1573696eb4/generatepdf.generatepdf.js",
+    "index": "d613bf199c1573696eb4/index.index.js",
+    "main": "d613bf199c1573696eb4/main.js",
+    "persetujuan_nasabah": "d613bf199c1573696eb4/persetujuan_nasabah.persetujuan_nasabah.js",
+    "persetujuan_nasabah_$slug": "d613bf199c1573696eb4/persetujuan_nasabah_$slug.persetujuan_nasabah_$slug.js"
+  },
+  "css": {
+    "chunks": {
+      "index.svelte": [],
+      "persetujuan_nasabah/index.svelte": [],
+      "persetujuan_nasabah/[slug].svelte": [],
+      "generatepdf.svelte": []
+    }
+  }
+}
