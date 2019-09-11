@@ -75,7 +75,6 @@
       <div id="viewport-container"><div role="main" id="viewport"></div></div>
     </div>
    </div>
-    <script src="https://unpkg.com/pdfjs-dist@2.0.489/build/pdf.min.js"></script>
     <script>
       (function() {
       let currentPageIndex = 0;
@@ -90,7 +89,7 @@
           pdfInstance = pdf;
           totalPagesCount = pdf.numPages;
           initPager();
-          initPageMode();
+          // initPageMode();
           render();
         });
       };
