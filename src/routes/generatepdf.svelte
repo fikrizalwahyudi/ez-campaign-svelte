@@ -32,7 +32,7 @@
   #toolbar button:focus,
   #page-mode input:hover,
   #page-mode input:focus {
-    color: lightGreen;
+    color: #fff;
   }
   #page-mode {
     display: flex;
@@ -64,17 +64,17 @@
 
 <main>
   <body>
-  <div id="container" class="mt-5 mb-5" >
-    <div id="app">
-      <div role="toolbar" id="toolbar">
-        <div id="pager">
-          <button data-pager="prev">prev</button>
-          <button data-pager="next">next</button>
+    <div id="container" class="mt-5 mb-5" >
+      <div id="app">
+        <div role="toolbar" id="toolbar">
+          <div id="pager">
+            <button data-pager="prev">prev</button>
+            <button data-pager="next">next</button>
+          </div>
         </div>
+        <div id="viewport-container"><div role="main" id="viewport"></div></div>
       </div>
-      <div id="viewport-container"><div role="main" id="viewport"></div></div>
     </div>
-   </div>
     <script>
       (function() {
       let currentPageIndex = 0;
@@ -183,8 +183,9 @@
     })();
 
 	</script>
+  <script src="https://unpkg.com/pdfjs-dist@2.0.489/build/pdf.min.js"></script>
   <script>initPDFViewer("output.pdf");</script>
-	<navbar  class="navbar bg-light fixed-bottom">
+	<navbar  class="navbar bg-white fixed-bottom shadow-lg">
 		<div class="col-12">
 			<small class="font-italic font-weight-small mb-2">Penawaran ini berlaku hingga dd-mm-yy pukul hh:mm.</small>
 		</div>
