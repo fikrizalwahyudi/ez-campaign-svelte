@@ -3,16 +3,16 @@
 	export let segment;
 	import { onMount } from 'svelte';
 
-	onMount(() => {
-		document.getElementsByName("container_terms")[0].addEventListener("scroll", checkScrollHeight, false);
+	//  onMount(() => {
+	//  	document.getElementsByName("container_terms")[0].addEventListener("scroll", checkScrollHeight, false);
 
-		function checkScrollHeight() {
-			var agreementTextElement = document.getElementsByName("container_terms")[0];
-			if (agreementTextElement.clientHeight + agreementTextElement.scrollTop >= agreementTextElement.scrollHeight) {
-				document.getElementsByName("agree")[0].disabled = false;	
-			}
-		}
-	});
+	//  	function checkScrollHeight() {
+	//  		var agreementTextElement = document.getElementsByName("container_terms")[0];
+	//  		if (agreementTextElement.clientHeight + agreementTextElement.scrollTop >= agreementTextElement.scrollHeight) {
+	//  			document.getElementsByName("agree")[0].disabled = false;	
+	//  		}
+	//  	}
+	//  });
 </script>
 
 <style>

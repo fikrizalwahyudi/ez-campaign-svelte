@@ -1,6 +1,22 @@
+
 <svelte:head>
-	<title>Generate PDF</title>
+	<title>PDF Viewer</title>
 </svelte:head>
+
+<script>
+// function first_page(event) {
+//       first_page= true;
+//   }
+//   function not_first_page(event) {
+//       first_page= false;
+      
+//   }
+//     function last_page(event) {
+//        last_page =  false;
+       
+//    }
+</script>
+
 <style>
   body {
     margin: 0;
@@ -60,25 +76,21 @@
     width: 100%;
     box-shadow: 0 2px 5px gray;
   }
+
 </style>
 
 <main>
   <body>
     <div id="container" class="mt-5 mb-5" >
+    <div id="container_terms" name="container_terms">
       <div id="app">
-        <div role="toolbar" id="toolbar">
-          <div id="pager">
-            <button data-pager="prev">prev</button>
-            <button data-pager="next">next</button>
-          </div>
-        </div>
         <div id="viewport-container"><div role="main" id="viewport"></div></div>
       </div>
     </div>
     <script>
       (function() {
       let currentPageIndex = 0;
-      let pageMode = 1;
+      let pageMode = 5;
       let cursorIndex = Math.floor(currentPageIndex / pageMode);
       let pdfInstance = null;
       let totalPagesCount = 0;
@@ -96,9 +108,10 @@
 
       function onPagerButtonsClick(event) {
         const action = event.target.getAttribute("data-pager");
+        
         if (action === "prev") {
           if (currentPageIndex === 0) {
-            return;
+             return;
           }
           currentPageIndex -= pageMode;
           if (currentPageIndex < 0) {
@@ -106,10 +119,15 @@
           }
           render();
         }
+        
+        
         if (action === "next") {
-          if (currentPageIndex === totalPagesCount - 1) {
-            return;
-          }
+           if (currentPageIndex == 4){
+             last_page= true;
+           }
+           if (currentPageIndex === totalPagesCount - 1) {
+             return;
+           }
           currentPageIndex += pageMode;
           if (currentPageIndex > totalPagesCount - 1) {
             currentPageIndex = totalPagesCount - 1;
@@ -157,7 +175,7 @@
 
         Promise.all(renderPagesPromises).then(pages => {
           const pagesHTML = `<div style="width: ${
-            pageMode > 1 ? "50%" : "100%"
+            pageMode > 1 ? "100%" : "100%"
           }"><canvas></canvas></div>`.repeat(pages.length);
           viewport.innerHTML = pagesHTML;
           pages.forEach(renderPage);
@@ -168,7 +186,7 @@
         let pdfViewport = page.getViewport(1);
 
         const container =
-          viewport.children[page.pageIndex - cursorIndex * pageMode];
+        viewport.children[page.pageIndex - cursorIndex * pageMode];
         pdfViewport = page.getViewport(container.offsetWidth / pdfViewport.width);
         const canvas = container.children[0];
         const context = canvas.getContext("2d");
@@ -185,12 +203,40 @@
 	</script>
   <script src="https://unpkg.com/pdfjs-dist@2.0.489/build/pdf.min.js"></script>
   <script>initPDFViewer("output.pdf");</script>
-	<navbar  class="navbar bg-white fixed-bottom shadow-lg">
-		<div class="col-12">
-			<small class="font-italic font-weight-small mb-2">Penawaran ini berlaku hingga dd-mm-yy pukul hh:mm.</small>
-		</div>
-		<div class="col-12">
-			<a rel='prefetch' href='persetujuan_nasabah'><button  class="btn btn-block btn-danger">Lanjutkan</button></a>
-		</div>
-	</navbar>
-</main>
+
+
+    <navbar id="pager"  name="container_terms" class="navbar bg-white fixed-bottom shadow-lg">
+        <div class="col-12">
+          <small class="font-italic font-weight-small mb-2">Penawaran ini berlaku hingga dd-mm-yy pukul hh:mm.</small>
+        </div>
+        <div class="col-12">
+           <a href="persetujuan_nasabah"><input type="button" name="agree" class="btn btn-block btn-danger" value="Next"/></a>
+        </div>
+    </navbar>
+  </div>
+</main>      
+
+      <!-- {#if  !first_page}
+        <div class="col-12">
+          <small class="font-italic font-weight-small mb-2">Penawaran ini berlaku hingga dd-mm-yy pukul hh:mm.</small>
+        </div>
+        <div class="col-6">
+          <button data-pager="prev" class="btn btn-block btn-secondary">Previous</button>
+        </div>
+        <div class="col-6">
+          <a href="persetujuan_nasabah"><button data-pager="next"  class="btn btn-block btn-danger">Next</button></a>
+        </div>   
+      {/if} -->
+
+      <!-- {#if last_page}
+        <div class="col-12">
+          <small class="font-italic font-weight-small mb-2">Penawaran ini berlaku hingga dd-mm-yy pukul hh:mm.</small>
+        </div>
+        <div class="col-6">
+          <button data-pager="prev" class="btn btn-block btn-secondary">Previous</button>
+        </div>
+        <div  class="col-6">
+          <a href="persetujuan_nasabah"><button data-pager="next"  class="btn btn-block btn-danger">Next</button></a>
+        </div>   
+      {/if}         -->
+
