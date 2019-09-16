@@ -145,7 +145,7 @@ const posts = [
 				<p> Terima kasih</p>
 				<navbar  class="navbar bg-white fixed-bottom shadow-lg">
 					<div class="col-12">
-						<small class="font-italic font-weight-smal mb-2">Penawaran ini berlaku hingga dd-mm-yy pukul hh:mm.</small>
+						<small class="font-italic font-weight-smal mb-2">Penawaran ini berlaku hingga : <small id="dates"></small></small>
 					</div>
 					<div class="col-12">
 						<a rel='prefetch' href='persetujuan_nasabah'><button  class="btn btn-block btn-danger">Tutup</button></a>
@@ -164,7 +164,7 @@ const posts = [
 			<p>Terima kasih atas konfirmasi Anda. Hubungi Tenaga Pemasar Anda untuk informasi lebih lanjut.</p>
 			<navbar  class="navbar bg-white fixed-bottom shadow-lg">
 				<div class="col-12">
-					<small class="font-italic font-weight-smal mb-2">Penawaran ini berlaku hingga dd-mm-yy pukul hh:mm.</small>
+					<small class="font-italic font-weight-smal mb-2">Penawaran ini berlaku hingga : <small id="dates"></small></small>
 				</div>
 				<div class="col-12">
 					<a rel='prefetch' href='persetujuan_nasabah'><button  class="btn btn-block btn-danger">Tutup</button></a>

@@ -37,8 +37,7 @@
 	<p class=" text-justify mt-5">Klik Setuju untuk pengajuan perubahan Polis ini</p>
 <navbar  class="navbar bg-white fixed-bottom shadow-lg">
 	<div class="col-12">
-		
-		<small class="font-italic font-weight-smal mb-2">Penawaran ini berlaku hingga dd-mm-yy pukul hh:mm.</small>
+		<small class="font-italic font-weight-smal mb-2">Penawaran ini berlaku hingga : <small id="dates"></small></small>
 	</div>
 	<div class="col-6">
 		<a rel='prefetch' href='persetujuan_nasabah/tidak-setuju'><button block class="btn btn-block btn-secondary">Tidak Setuju</button></a>

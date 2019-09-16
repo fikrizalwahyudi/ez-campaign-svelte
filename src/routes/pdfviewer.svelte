@@ -216,15 +216,6 @@
     </navbar>
   </div>
 </div>
-  <script>
-  
-  var today = new Date();
-  var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-  var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-  var dateTime = date+' '+time;
-    document.getElementById("dates").innerHTML =  dateTime;
-  
-  </script>
 </main>      
 
       <!-- {#if  !first_page}
