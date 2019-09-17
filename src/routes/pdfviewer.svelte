@@ -3,20 +3,6 @@
 	<title>PDF Viewer</title>
 </svelte:head>
 
-<script>
-// function first_page(event) {
-//       first_page= true;
-//   }
-//   function not_first_page(event) {
-//       first_page= false;
-      
-//   }
-//     function last_page(event) {
-//        last_page =  false;
-       
-//    }
-</script>
-
 <style>
   body {
     margin: 0;
@@ -76,16 +62,16 @@
     width: 100%;
     box-shadow: 0 2px 5px gray;
   }
-
 </style>
 
 <main>
   <body>
-    <div id="container" class="mt-5 mb-5" >
-      <div id="container_terms">
-        <div id="app">
-        <div id="viewport-container"><div  role="main" id="viewport"></div></div>
-      
+    <div id="app">
+      <div id="viewport-container"  name="container_terms">
+        <div  role="main" id="viewport"></div>
+      </div>
+    </div>
+    
       <script>
         (function() {
         let currentPageIndex = 0;
@@ -120,9 +106,6 @@
           }
           
           if (action === "next") {
-            if (currentPageIndex == 4){
-              last_page= true;
-            }
             if (currentPageIndex === totalPagesCount - 1) {
               return;
             }
@@ -202,43 +185,13 @@
     </script>
     <script src="https://unpkg.com/pdfjs-dist@2.0.489/build/pdf.min.js"></script>
     <script>initPDFViewer("output.pdf");</script>
+
+  <navbar id="pager" class="navbar bg-white fixed-bottom shadow-lg">
+    <div class="col-12">
+      <small  class="font-italic font-weight-small mb-2">Penawaran ini berlaku hingga <small id="dates"></small></small>
     </div>
-  </div>
-
-  <div id="container_terms" name="container_terms">
-    <navbar id="pager" class="navbar bg-white fixed-bottom shadow-lg">
-        <div class="col-12">
-          <small  class="font-italic font-weight-small mb-2">Penawaran ini berlaku hingga <small id="dates"></small></small>
-        </div>
-        <div class="col-12">
-           <a href="persetujuan_nasabah"><input type="button" name="agree" class="btn btn-block btn-danger" value="Next"/></a>
-        </div>
-    </navbar>
-  </div>
-</div>
-</main>      
-
-      <!-- {#if  !first_page}
-        <div class="col-12">
-          <small class="font-italic font-weight-small mb-2">Penawaran ini berlaku hingga dd-mm-yy pukul hh:mm.</small>
-        </div>
-        <div class="col-6">
-          <button data-pager="prev" class="btn btn-block btn-secondary">Previous</button>
-        </div>
-        <div class="col-6">
-          <a href="persetujuan_nasabah"><button data-pager="next"  class="btn btn-block btn-danger">Next</button></a>
-        </div>   
-      {/if} -->
-
-      <!-- {#if last_page}
-        <div class="col-12">
-          <small class="font-italic font-weight-small mb-2">Penawaran ini berlaku hingga dd-mm-yy pukul hh:mm.</small>
-        </div>
-        <div class="col-6">
-          <button data-pager="prev" class="btn btn-block btn-secondary">Previous</button>
-        </div>
-        <div  class="col-6">
-          <a href="persetujuan_nasabah"><button data-pager="next"  class="btn btn-block btn-danger">Next</button></a>
-        </div>   
-      {/if}         -->
-
+    <div class="col-12">
+      <a rel='prefetch' href='persetujuan_nasabah'><input type="button" name="agree" class="btn btn-block btn-danger" value="Next" disabled /></a>
+    </div>
+  </navbar>
+</main>

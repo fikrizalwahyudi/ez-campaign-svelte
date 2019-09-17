@@ -3,25 +3,26 @@
 	export let segment;
 	import { onMount } from 'svelte';
 
+	// function date time 
 	onMount(() => {
 	var today = new Date();
 	var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-	var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+	var time = "23:59";
 	var dateTime = date+' '+time;
 		document.getElementById("dates").innerHTML =  dateTime;
-
 	})
 
+	// function handling disable/enable button pdfviewer
+	 onMount(() => {
+	 	document.getElementsByName("container_terms")[0].addEventListener("scroll", checkScrollHeight, false);
+	 	function checkScrollHeight() {
+	 		var agreementTextElement = document.getElementsByName("container_terms")[0];
+	 		if (agreementTextElement.clientHeight + agreementTextElement.scrollTop >= agreementTextElement.scrollHeight) {
+	 			document.getElementsByName("agree")[0].disabled = false;	
+	 		}
+	 	}
+	 });
 
-	//  onMount(() => {
-	//  	document.getElementsByName("container_terms")[0].addEventListener("scroll", checkScrollHeight, false);
-	//  	function checkScrollHeight() {
-	//  		var agreementTextElement = document.getElementsByName("container_terms")[0];
-	//  		if (agreementTextElement.clientHeight + agreementTextElement.scrollTop >= agreementTextElement.scrollHeight) {
-	//  			document.getElementsByName("agree")[0].disabled = false;	
-	//  		}
-	//  	}
-	//  });
 </script>
 
 <style>
