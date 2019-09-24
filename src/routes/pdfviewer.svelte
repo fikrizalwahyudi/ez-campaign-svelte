@@ -46,6 +46,8 @@
     flex: 1;
     background: #eee;
     overflow: auto;
+    padding-top:20%;
+    padding-bottom:20%;
   }
   #viewport {
     width: 90%;
