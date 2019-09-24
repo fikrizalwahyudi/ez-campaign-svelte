@@ -66,6 +66,25 @@
   }
 </style>
 
+<script context="module">
+	export async function preload({ params, query }) {
+    console.log(query);
+		// the `slug` parameter is available because
+		// this file is called [slug].svelte
+		// const res = await this.fetch(`persetujuan_nasabah/${params.slug}.json`);
+		const data = await res.json();
+
+		if (res.status === 200) {
+			return { post: data };
+		} else {
+			this.error(res.status, data.message);
+		}
+	}
+	// const valid = true;
+  // console.log(query);
+</script>
+
+
 <main>
   <!-- <body> -->
     <div id="app">
@@ -186,7 +205,7 @@
 
     </script>
     <script src="https://unpkg.com/pdfjs-dist@2.0.489/build/pdf.min.js"></script>
-    <script>initPDFViewer("output.pdf");</script>
+    <script>initPDFViewer("http://localhost:5000/output/output.pdf");</script>
 
   <navbar id="pager" class="navbar bg-white fixed-bottom shadow-lg">
     <div class="col-12">
