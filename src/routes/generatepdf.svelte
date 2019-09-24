@@ -183,7 +183,7 @@
     })();
 
 	</script>
-  <script src="https://unpkg.com/pdfjs-dist@2.0.489/build/pdf.min.js"></script>
+  <!-- <script src="https://unpkg.com/pdfjs-dist@2.0.489/build/pdf.min.js"></script> -->
   <script>initPDFViewer("output.pdf");</script>
 	<navbar  class="navbar bg-white fixed-bottom shadow-lg">
 		<div class="col-12">
