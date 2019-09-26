@@ -1,4 +1,3 @@
-
 <svelte:head>
 	<title>PDF Viewer</title>
 </svelte:head>
@@ -67,26 +66,29 @@
 </style>
 
 <script context="module">
+  import Setuju from '../components/setuju.svelte';
+  import Tidak_setuju from '../components/tidak_setuju.svelte';
 	export async function preload({ params, query }) {
-    console.log(query);
-		// the `slug` parameter is available because
-		// this file is called [slug].svelte
-		// const res = await this.fetch(`persetujuan_nasabah/${params.slug}.json`);
-		const data = await res.json();
+    const data = await res.json();
 
 		if (res.status === 200) {
 			return { post: data };
 		} else {
 			this.error(res.status, data.message);
 		}
-	}
-	// const valid = true;
-  // console.log(query);
+  }
 </script>
 
+<script>
+let page="pdf";
+    function buttonclick(event){
+      page=event.target.value;
+      console.log(event.target.value);     
+    }
+</script>
 
 <main>
-  <!-- <body> -->
+  {#if page == "pdf"}
     <div id="app">
       <div id="viewport-container"  name="container_terms" style="padding-top: 15%; padding-bottom: 15%;">
         <div  role="main" id="viewport"></div>
@@ -205,29 +207,23 @@
 
     </script>
     <script src="https://unpkg.com/pdfjs-dist@2.0.489/build/pdf.min.js"></script>
-    <script>initPDFViewer("http://localhost:5000/output/output.pdf");</script>
+    <script>initPDFViewer("output.pdf");</script>
 
-  <navbar id="pager" class="navbar bg-white fixed-bottom shadow-lg">
-    <div class="col-12">
-      <small  class="font-italic font-weight-small mb-2">Penawaran ini berlaku hingga <small id="dates"></small></small>
-    </div>
-    <div class="col-6">
-			<a rel='prefetch' href='persetujuan_nasabah/tidak-setuju'><button  name="agree" block class="btn btn-block btn-secondary" disabled>Tidak Setuju</button></a>
-		</div>
-		<div class="col-6">
-			<a rel='prefetch' href='persetujuan_nasabah/setuju'><button  name="agree2" block class="btn btn-block btn-danger" disabled>Setuju</button></a>
-		</div>
-  </navbar>
-
-  <!-- <navbar  class="navbar bg-white fixed-bottom shadow-lg">
-		<div class="col-12">
-			<small class="font-italic  mb-2">Penawaran ini berlaku hingga : <small class="t" id="dates"></small></small>
-		</div>
-		<div class="col-6">
-			<a rel='prefetch' href='persetujuan_nasabah/tidak-setuju'><button block class="btn btn-block btn-secondary">Tidak Setuju</button></a>
-		</div>
-		<div class="col-6">
-			<a rel='prefetch' href='persetujuan_nasabah/setuju'><button block class="btn btn-block btn-danger">Setuju</button></a>
-		</div>
-	</navbar> -->
-</main>
+    <navbar id="pager" class="navbar bg-white fixed-bottom shadow-lg">
+      <div class="col-12">
+        <small  class="font-italic font-weight-small mb-2">Penawaran ini berlaku hingga <small id="dates"></small></small>
+      </div>
+      <div class="col-6">
+        <button on:click|preventDefault={buttonclick} value="tidak_setuju" name="agree2" block class="btn btn-block btn-secondary" disabled>Tidak Setuju</button>
+      </div> 
+      <div class="col-6">
+          <button on:click|preventDefault={buttonclick} value="setuju" name="agree" block class="btn btn-block btn-danger" disabled>Setuju</button>
+      </div>
+    </navbar>
+  
+    {:else if page=="setuju"}
+        <Setuju/>  
+    {:else if page=="tidak_setuju"}
+      <Tidak_setuju/>
+    {/if}
+  </main>

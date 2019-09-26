@@ -1,5 +1,6 @@
 <script>
 	import Nav from '../components/Nav.svelte';
+
 	export let segment;
 	import { onMount } from 'svelte';
 
@@ -12,7 +13,10 @@
 		
 		document.getElementById("dates").innerHTML =  dateTime;
 
+
+	// function handling disable/enable button pdfviewer
 		document.getElementsByName("container_terms")[0].addEventListener("scroll", checkScrollHeight, false);
+		
 		function checkScrollHeight() {
 			var agreementTextElement = document.getElementsByName("container_terms")[0];
 			if (agreementTextElement.clientHeight + agreementTextElement.scrollTop >= agreementTextElement.scrollHeight) {
@@ -21,9 +25,11 @@
 			}
 		}
 
+		
+
 	})
 
-	// // function handling disable/enable button pdfviewer
+	// 
 	//  onMount(() => {
 	 	
 	//  });
