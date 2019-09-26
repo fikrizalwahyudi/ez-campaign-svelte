@@ -1,9 +1,3 @@
-
-<script>
-	export let segment;
-	
-</script>
-
 <nav class="navbar navbar-expand-xs fixed-top bg-white shadow-sm">
         <ul class="navbar-nav  ml-auto">
             <li class="nav-item">

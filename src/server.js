@@ -20,7 +20,6 @@ app.use(cors());
 const { PORT, NODE_ENV } = process.env;
 const dev = NODE_ENV === 'development';
 
-
 app.use(compression({ threshold: 0 }),
 	sirv('static', { dev }),
 	sapper.middleware()
