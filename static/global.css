@@ -100,7 +100,10 @@ code {
   #loader {
     position:fixed;
     width:100%;
-    left:0;right:0;top:0;bottom:0;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
     background-color: rgba(0, 0, 0, 0.7);
     z-index:9999;
     display:none;
@@ -120,8 +123,10 @@ code {
     content:'';
     display:block;
     position:absolute;
-    left:48%;top:40%;
-    width:40px;height:40px;
+    left:40%;
+    top:40%;
+    width:40px;
+    height:40px;
     border-style:solid;
     border-color:whitesmoke;
     border-top-color:transparent;

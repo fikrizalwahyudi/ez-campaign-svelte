@@ -40,16 +40,15 @@
 
 <div id="verification" class="row">
 	<div class="col-12 bg-danger mt-5 pt-5 " style="height: 100%; position: fixed;">
-		<div  id="container" class="mt-5 mb-5 pt-5" style="margin:0;">
+		<div id="failed" class="alert alert-danger text-center animate-bottom" role="alert" style="display:none">
+			<strong>Verification code Wrong!</strong>
+		</div>
+		<div  id="container" class="mb-5 pt-5" style="margin:0;">
 			<form id="validate" method="post">
-				<div id="failed" class="alert alert-danger" role="alert" style="display:none">
-					<strong>Verification code Wrong!</strong>
-				</div>
 				<p class=" text-center text-light mt-5 pt-5">Easy_Campaign_Plus.pdf is protected. Please enter a Document Open Password</p>
-				<input id="password" name="password" class="form-control mb-2" type="password" placehoder="Password">
-				<!-- <button on:click={Load} class="btn btn-block btn-secondary" >Submit</button> -->
+				<input id="password" name="password" class="form-control mb-2" type="password" placehoder="Password" required>
 				<input type="button" class="btn btn-block btn-secondary" value="Submit" id="submit" on:click={verification}/>
-				<div id="loader" style="display:none;"></div>
+				<div id="loader" class="animate-bottom" style="display:none;"></div>
 			</form>
 		</div>
 	</div>
