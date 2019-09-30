@@ -82,7 +82,7 @@ export function render() {
     Promise.all(renderPagesPromises).then(pages => {
     const pagesHTML = `<div style="width: ${
         pageMode > 1 ? "100%" : "100%"
-    }"><canvas></canvas></div>`.repeat(pages.length);
+    }"><canvas id="zoom"></canvas></div>`.repeat(pages.length);
     viewport.innerHTML = pagesHTML;
     pages.forEach(renderPage);
     });
@@ -102,3 +102,4 @@ export function renderPage(page) {
     viewport: pdfViewport
     });
 }
+

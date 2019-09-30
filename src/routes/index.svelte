@@ -30,7 +30,9 @@
 	let page = "verification";
 	const login = function(){
 		// valid = true;
+		
 		return page = "campaign-output";
+		
 	}
 	action = login;
 </script>
