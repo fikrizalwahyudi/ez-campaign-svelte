@@ -27,6 +27,7 @@ function zoomout(){
   import { onMount } from 'svelte';
   import * as PDFGenerator from '../../routes/CampaignOutput/PDFGenerator';
 
+
   let today = new Date();
   let date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
   let time = "23:59";
@@ -54,8 +55,8 @@ function zoomout(){
   </div> 
   <navbar id="pager" class="navbar bg-white fixed-bottom shadow-lg">
     <div class ="col-12 text-center">
-      <button class ="btn btn-sm btn-secondary" on:click= {zoomin}><b>+<b/></button>
-      <button class ="btn btn-sm btn-secondary" on:click= {zoomout}><b>- <b/></button>
+      <button class ="btn btn-sm btn-secondary" on:click= {zoomin}>Zoom in</button>
+      <button class ="btn btn-sm btn-secondary" on:click= {zoomout}>Zoom out</button>
     </div>
     <div class="col-12">
       <p>Apakah anda setuju dengan penawaran ini ?</p>

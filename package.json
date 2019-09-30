@@ -20,6 +20,7 @@
     "docxtemplater": "^3.14.3",
     "express": "^4.17.1",
     "express-session": "^1.16.2",
+    "glyphicons": "^0.2.0",
     "node-fetch": "^2.6.0",
     "path": "^0.12.7",
     "polka": "next",
@@ -29,6 +30,7 @@
     "svelte-routing": "^1.4.0"
   },
   "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.11.2",
     "npm-run-all": "^4.1.5",
     "sapper": "^0.27.0",
     "svelte": "^3.0.0",

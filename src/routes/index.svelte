@@ -5,6 +5,7 @@
 <script context="module">
 	import CampaignOutput from '../routes/CampaignOutput/index';
 	import Verification from '../components/Verification.svelte';
+
 	const token = "";
 	export async function preload({ params, query }) {
 		console.log(query.id);
