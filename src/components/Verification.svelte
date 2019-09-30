@@ -8,7 +8,7 @@
 	function verification() {
 		var password = document.getElementById("password").value;
 		if (password == "admin"){
-			loading = setTimeout(showPage, 300000);
+			loading = setTimeout(showPage, 3000);
 			document.getElementById("failed").style.display = "none";
 			document.getElementById("verification").style.display = "block";
 			document.getElementById("loader").style.display = "block";
