@@ -4,6 +4,19 @@
 </svelte:head>
 
 <script context="module">
+function setuju(){
+      document.getElementById("setuju").style.display = "block";
+      document.getElementById("pdf-container").style.display = "none";
+      document.getElementById("pager").style.display = "none";
+			return false;
+}
+
+function tidaksetuju(){
+      document.getElementById("tidaksetuju").style.display = "block ";
+      document.getElementById("pdf-container").style.display = "none";
+      document.getElementById("pager").style.display = "none";
+			return false;
+}
 
 function zoomin(){
     var pdfzoom = document.getElementById("viewport");
@@ -13,6 +26,7 @@ function zoomin(){
         pdfzoom.style.width = (currWidth + 100) + "px";
     } 
 }
+
 function zoomout(){
     var pdfzoom = document.getElementById("viewport");
     var currWidth = pdfzoom.clientWidth;
@@ -21,12 +35,14 @@ function zoomout(){
         pdfzoom.style.width = (currWidth - 100) + "px";
     }
 }
+
 </script>
 
 <script>
   import { onMount } from 'svelte';
   import * as PDFGenerator from '../../routes/CampaignOutput/PDFGenerator';
-
+  import Setuju from '../../routes/route_setuju.svelte'
+  import Tidaksetuju from '../../routes/route_tidaksetuju.svelte'
 
   let today = new Date();
   let date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
@@ -53,6 +69,7 @@ function zoomout(){
       <div  role="main" id="viewport"></div>
     </div>
   </div> 
+  
   <navbar id="pager" class="navbar bg-white fixed-bottom shadow-lg">
     <div class ="col-12 text-center">
       <button class ="btn btn-sm btn-secondary" on:click= {zoomin}>Zoom in</button>
@@ -63,10 +80,19 @@ function zoomout(){
       <small  class="font-italic font-weight-small mb-2">Penawaran ini berlaku hingga <small>{dateTime}</small></small>
     </div>
     <div class="col-6">
-			<a rel='prefetch' href='route_setuju'><button  name="agree2" block class="btn btn-block btn-danger" disabled>Setuju</button></a>
+			<button on:click={setuju}  name="agree2" block class="btn btn-block btn-danger" disabled>Setuju</button>
 		</div>
     <div class="col-6">
-			<a rel='prefetch' href='route_tidaksetuju'><button  name="agree" block class="btn btn-block btn-secondary" disabled>Tidak Setuju</button></a>
+			<button on:click={tidaksetuju} name="agree" block class="btn btn-block btn-secondary" disabled>Tidak Setuju</button>
 		</div>
   </navbar>
+
+  <div  id="setuju" style="display:none" class=" animate-bottom">	
+    <Setuju/>
+  </div>
+
+  <div  id="tidaksetuju" style="display:none" class=" animate-bottom">	
+    <Tidaksetuju/>
+  </div>
+  
 </main>
