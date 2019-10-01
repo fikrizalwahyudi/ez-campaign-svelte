@@ -31,7 +31,7 @@
 	document.getElementById("failed").style.display = "none";
 	document.getElementById("loader").style.display = "none";
 	document.getElementById("content").style.display = "block";
-	PDFGenerator.initPDFViewer("output.pdf");
+	PDFGenerator.initPDFViewer("outputPDFMix.pdf");
 	}
 
 	export let action;
