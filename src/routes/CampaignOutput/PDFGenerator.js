@@ -89,13 +89,18 @@ export function render() {
 }
 
 export function renderPage(page) {
-    let pdfViewport = page.getViewport(1);
+    const scale = 0.1;
+    let pdfViewport = page.getViewport(scale);
     const container = viewport.children[page.pageIndex - cursorIndex * pageMode];
     pdfViewport = page.getViewport(container.offsetWidth / pdfViewport.width);
     const canvas = container.children[0];
     const context = canvas.getContext("2d");
     canvas.height = pdfViewport.height;
     canvas.width = pdfViewport.width;
+    // canvas.style.width = "100%";
+    // canvas.style.height = "100%";
+    // wrapper.style.width = Math.floor(viewport.width/scale) + 'pt';
+    // wrapper.style.height = Math.floor(viewport.height/scale) + 'pt';
 
     page.render({
     canvasContext: context,
