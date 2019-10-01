@@ -4,17 +4,28 @@
 </svelte:head>
 
 <script context="module">
+
+//flag case persetujuan
+let flag_pdfviewer = true;
+let flag_setuju = false;
+let flag_tidaksetuju = false;
+
 function setuju(){
+      
       document.getElementById("setuju").style.display = "block";
       document.getElementById("pdf-container").style.display = "none";
       document.getElementById("pager").style.display = "none";
+      flag_setuju = true;
+      flag_pdfviewer = false;
 			return false;
 }
 
-function tidaksetuju(){
+function tidaksetuju(){      
       document.getElementById("tidaksetuju").style.display = "block ";
       document.getElementById("pdf-container").style.display = "none";
       document.getElementById("pager").style.display = "none";
+      flag_tidaksetuju = true;
+      flag_pdfviewer = false;
 			return false;
 }
 
@@ -49,6 +60,7 @@ function zoomout(){
   let time = "23:59";
   let dateTime = date+' '+time;
   
+  
   onMount(() => {
     document.getElementsByName("container_terms")[0].addEventListener("scroll", checkScrollHeight, false);
     function checkScrollHeight() {
@@ -62,8 +74,9 @@ function zoomout(){
     PDFGenerator.initPDFViewer("output.pdf");
   });
 </script>
-
 <main>
+
+{#if flag_pdfviewer}
   <div id="pdf-container">
     <div id="viewport-container"  name="container_terms" style="padding-top: 15%; padding-bottom: 26%;">
       <div  role="main" id="viewport"></div>
@@ -86,13 +99,27 @@ function zoomout(){
 			<button on:click={tidaksetuju} name="agree" block class="btn btn-block btn-secondary" disabled>Tidak Setuju</button>
 		</div>
   </navbar>
-
-  <div  id="setuju" style="display:none" class=" animate-bottom">	
-    <Setuju/>
+    <div  id="setuju" style="display:none" class=" animate-bottom">	
+      <Setuju />
+    </div>
+    <div  id="tidaksetuju" style="display:none" class=" animate-bottom">	 
+    <Tidaksetuju/>  
   </div>
+{/if}
 
-  <div  id="tidaksetuju" style="display:none" class=" animate-bottom">	
-    <Tidaksetuju/>
-  </div>
+{#if flag_setuju}
+  <!-- <div  id="setuju" style="display:none" class=" animate-bottom">	 -->
+  <div  id="setuju" style="display:block" class=" animate-bottom">	
   
+    <Setuju />
+  </div>
+{/if}
+
+{#if flag_tidaksetuju} 
+  <!-- <div  id="tidaksetuju" style="display:none" class=" animate-bottom">	 -->
+  <div  id="tidaksetuju" style="display:block" class=" animate-bottom">	 
+    <Tidaksetuju/>  
+  </div>
+{/if}
+
 </main>
