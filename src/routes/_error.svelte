@@ -31,9 +31,10 @@
 	<title>{status}</title>
 </svelte:head>
 
-<h1>{status}</h1>
-
-<p>{error.message}</p>
+<br>
+<img src="logo.jpg"  style="width: 220px; height:200px; opacity:0.4;"class="rounded mx-auto d-block mt-5" alt="logo"/>
+<h1 class="text-danger text-center">{status}</h1>
+<h5 class="text-bold text-center">Page Not Found</h5>
 
 {#if dev && error.stack}
 	<pre>{error.stack}</pre>
