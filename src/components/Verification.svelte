@@ -38,7 +38,7 @@
 </script>
 
 <div id="verification" class="row">
-	<div class="col-12 bg-danger mt-5 pt-5 " style="height: 100%; position: fixed;">
+	<div class="col-12 bg-danger mt-4 pt-5 " style="height: 100%; position: fixed;">
 		<form id="validate" method="post">
 			<div id="failed" class="alert alert-danger text-center float-center" role="alert" style="display:none">
 				<strong>Verification code Wrong!</strong>
