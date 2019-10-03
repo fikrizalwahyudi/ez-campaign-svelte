@@ -6,10 +6,10 @@ let flag_setuju = false;
 let flag_tidaksetuju = false;
 
 function setuju(){
-      
       document.getElementById("setuju").style.display = "block";
       document.getElementById("pdf-container").style.display = "none";
       document.getElementById("pager").style.display = "none";
+      document.getElementById("zoom").style.display = "none";
       flag_setuju = true;
       flag_pdfviewer = false;
 			return false;
@@ -19,6 +19,7 @@ function tidaksetuju(){
       document.getElementById("tidaksetuju").style.display = "block ";
       document.getElementById("pdf-container").style.display = "none";
       document.getElementById("pager").style.display = "none";
+      document.getElementById("zoom").style.display = "none";
       flag_tidaksetuju = true;
       flag_pdfviewer = false;
 			return false;
@@ -84,12 +85,7 @@ function zoomout(){
 <main>
 
 {#if flag_pdfviewer}
-<Navbar id="pager" class="navbar bg-white fixed-top shadow-xs mt-5">  
-      <div  class ="col-12 text-center fixed">
-          <Button class ="btn btn-sm btn-light" on:click= {zoomin}><div class="icon"><FaPlus/></div></Button>
-          <Button class ="btn btn-sm btn-light" on:click= {zoomout}><div class="icon"><FaMinus/></div></Button>
-      </div>
-</Navbar>
+
   <div id="pdf-container">
     <div id="viewport-container"  name="container_terms" style="padding-top: 15%; padding-bottom: 26%;">
       <div  role="main" id="viewport"></div>
@@ -97,9 +93,10 @@ function zoomout(){
   </div> 
   
   <Navbar id="pager" class="navbar bg-white fixed-bottom shadow-lg">  
+
     <div class="col-12">
-      <p>Apakah anda setuju dengan penawaran ini ?</p>
-      <small  class="font-italic font-weight-small mb-2">Penawaran ini berlaku hingga <small>{dateTime}</small></small>
+      <p class="pt-2">Apakah anda setuju dengan penawaran ini ?</p>
+      <small  class="font-italic font-weight-small">Penawaran ini berlaku hingga <small>{dateTime}</small></small>
     </div>
     <div class="col-6">
 			<Button on:click={setuju}  name="agree2" block class="btn btn-block btn-danger" disabled>Setuju</Button>
@@ -107,8 +104,18 @@ function zoomout(){
     <div class="col-6">
 			<Button on:click={tidaksetuju} name="agree" block class="btn btn-block btn-secondary" disabled>Tidak Setuju</Button>
 		</div>
+    <Navbar id="zoom" class="navbar navbar-expand-xs fixed-bottom  shadow-sm mb-5 pb-5">  
+    <ul class="navbar-nav  ml-auto">
+        <div  class ="col-12  fixed mb-5">
+            <Button class ="btn btn-sm btn-light" on:click= {zoomin}><div class="icon"><FaPlus/></div></Button>
+            <Button class ="btn btn-sm btn-light" on:click= {zoomout}><div class="icon"><FaMinus/></div></Button>
+        </div>
+    </ul>
+  </Navbar>  
   </Navbar>
   
+
+
   <div  id="setuju" style="display:none" class=" animate-bottom">	
     <Setuju />
   </div>
