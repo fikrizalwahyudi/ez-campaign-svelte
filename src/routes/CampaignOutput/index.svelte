@@ -1,8 +1,3 @@
-
-<svelte:head>
-	<title>PDF Viewer</title>
-</svelte:head>
-
 <script context="module">
 
 //flag case persetujuan
@@ -54,6 +49,11 @@ function zoomout(){
   import * as PDFGenerator from '../../routes/CampaignOutput/PDFGenerator';
   import Setuju from '../../routes/route_setuju.svelte'
   import Tidaksetuju from '../../routes/route_tidaksetuju.svelte'
+  import Button from '../../../node_modules/sveltestrap/src/Button';
+  import ButtonGroup from '../../../node_modules/sveltestrap/src/ButtonGroup';
+  import Navbar from '../../../node_modules/sveltestrap/src/Navbar';
+  import FaPlus from '../../../node_modules/svelte-icons/fa/FaPlus';
+  import FaMinus from '../../../node_modules/svelte-icons/fa/FaMinus';
 
   let today = new Date();
   let date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
@@ -74,35 +74,46 @@ function zoomout(){
     PDFGenerator.initPDFViewer("output.pdf");
   });
 </script>
+<style>
+.icon {
+    color: black;
+    width: 15px;
+    height: 15px;
+  }
+</style>
 <main>
 
 {#if flag_pdfviewer}
+<Navbar id="pager" class="navbar bg-white fixed-top shadow-xs mt-5">  
+      <div  class ="col-12 text-center fixed">
+          <Button class ="btn btn-sm btn-light" on:click= {zoomin}><div class="icon"><FaPlus/></div></Button>
+          <Button class ="btn btn-sm btn-light" on:click= {zoomout}><div class="icon"><FaMinus/></div></Button>
+      </div>
+</Navbar>
   <div id="pdf-container">
     <div id="viewport-container"  name="container_terms" style="padding-top: 15%; padding-bottom: 26%;">
       <div  role="main" id="viewport"></div>
     </div>
   </div> 
   
-  <navbar id="pager" class="navbar bg-white fixed-bottom shadow-lg">
-    <div class ="col-12 text-center">
-      <button class ="btn btn-sm btn-secondary" on:click= {zoomin}>Zoom in</button>
-      <button class ="btn btn-sm btn-secondary" on:click= {zoomout}>Zoom out</button>
-    </div>
+  <Navbar id="pager" class="navbar bg-white fixed-bottom shadow-lg">  
     <div class="col-12">
       <p>Apakah anda setuju dengan penawaran ini ?</p>
       <small  class="font-italic font-weight-small mb-2">Penawaran ini berlaku hingga <small>{dateTime}</small></small>
     </div>
     <div class="col-6">
-			<button on:click={setuju}  name="agree2" block class="btn btn-block btn-danger" disabled>Setuju</button>
+			<Button on:click={setuju}  name="agree2" block class="btn btn-block btn-danger" disabled>Setuju</Button>
 		</div>
     <div class="col-6">
-			<button on:click={tidaksetuju} name="agree" block class="btn btn-block btn-secondary" disabled>Tidak Setuju</button>
+			<Button on:click={tidaksetuju} name="agree" block class="btn btn-block btn-secondary" disabled>Tidak Setuju</Button>
 		</div>
-  </navbar>
-    <div  id="setuju" style="display:none" class=" animate-bottom">	
-      <Setuju />
-    </div>
-    <div  id="tidaksetuju" style="display:none" class=" animate-bottom">	 
+  </Navbar>
+  
+  <div  id="setuju" style="display:none" class=" animate-bottom">	
+    <Setuju />
+  </div>
+  
+  <div  id="tidaksetuju" style="display:none" class=" animate-bottom">	 
     <Tidaksetuju/>  
   </div>
 {/if}
@@ -110,7 +121,6 @@ function zoomout(){
 {#if flag_setuju}
   <!-- <div  id="setuju" style="display:none" class=" animate-bottom">	 -->
   <div  id="setuju" style="display:block" class=" animate-bottom">	
-  
     <Setuju />
   </div>
 {/if}

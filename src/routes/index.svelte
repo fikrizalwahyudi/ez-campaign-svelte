@@ -1,5 +1,5 @@
 <svelte:head>
-	<title>Verifikasi</title>
+	<title>Easy-Campaign</title>
 </svelte:head>
 
 <script context="module">

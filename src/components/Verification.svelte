@@ -1,9 +1,13 @@
 <script>
     import CampaignOutput from '../routes/CampaignOutput/index';
 	import * as PDFGenerator from '../routes/CampaignOutput/PDFGenerator';
-	
+	import Alert from '../../node_modules/sveltestrap/src/Alert';
+	import Input from '../../node_modules/sveltestrap/src/Input';
+	import Button from '../../node_modules/sveltestrap/src/Button';
 	var loading;
-	var attempt = 3; 	
+	var attempt = 3; 
+	export let action;
+
 	
 	function verification() {
 		var password = document.getElementById("password").value;
@@ -33,20 +37,20 @@
 	document.getElementById("content").style.display = "block";
 	PDFGenerator.initPDFViewer("outputPDFMix.pdf");
 	}
+	
 
-	export let action;
 </script>
 
 <div id="verification" class="row">
 	<div class="col-12 bg-danger mt-4 pt-5 " style="height: 100%; position: fixed;">
-		<form id="validate" method="post">
-			<div id="failed" class="alert alert-danger text-center float-center" role="alert" style="display:none">
-				<strong>Verification code Wrong!</strong>
-			</div>
-			<div id="container"style="margin:0; animated-bottom">
+		<form id="validate" method="post" on:submit|preventDefault={verification}>
+			<Alert id="failed" class="text-center" color="danger" style="display:none">
+				<strong >Verification code Wrong!</strong>
+			</Alert>
+			<div id="container"style="margin:0;" class="animated-bottom">
 				<p class=" text-center text-light mt-5 pt-5">Easy_Campaign_Plus.pdf is protected. Please enter a Document Open Password</p>
-				<input id="password" name="password" class="form-control mb-2" type="password" placehoder="Password" required>
-				<input type="button" class="btn btn-block btn-secondary" value="Submit" id="submit" on:click={verification}/>
+				<Input type="password" name="password" id="password" class="mb-2" placeholder="Verification Code" required />
+				<input type="submit" id="submit" class="btn btn-block btn-secondary" value="Submit"/>
 				<div id="loader" class="animate-bottom" style="display:none;"></div>
 			</div>
 		</form>
