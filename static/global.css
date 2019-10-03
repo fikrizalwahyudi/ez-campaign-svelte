@@ -107,6 +107,7 @@ code {
     background-color: rgba(0, 0, 0, 0.3);
     z-index:9999;
     display:none;
+
 }
 
 @-webkit-keyframes spin {
@@ -154,9 +155,32 @@ code {
     from{ bottom:-100px; opacity:0 } 
     to{ bottom:0; opacity:1 }
   }
+
+/* scrollbar custom */
+  /* width */
+::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #dc3545; 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #dc3545; 
+  }
   
   #content {
     display: none;
     text-align: center;
     
   }
+
+  
