@@ -5,26 +5,6 @@ let flag_pdfviewer = true;
 let flag_setuju = false;
 let flag_tidaksetuju = false;
 
-function setuju(){
-      document.getElementById("setuju").style.display = "block";
-      document.getElementById("pdf-container").style.display = "none";
-      document.getElementById("pager").style.display = "none";
-      document.getElementById("zoom").style.display = "none";
-      flag_setuju = true;
-      flag_pdfviewer = false;
-			return false;
-}
-
-function tidaksetuju(){      
-      document.getElementById("tidaksetuju").style.display = "block ";
-      document.getElementById("pdf-container").style.display = "none";
-      document.getElementById("pager").style.display = "none";
-      document.getElementById("zoom").style.display = "none";
-      flag_tidaksetuju = true;
-      flag_pdfviewer = false;
-			return false;
-}
-
 function zoomin(){
     var pdfzoom = document.getElementById("viewport");
     var currWidth = pdfzoom.clientWidth;
@@ -42,6 +22,7 @@ function zoomout(){
         pdfzoom.style.width = (currWidth - 100) + "px";
     }
 }
+
 
 </script>
 
@@ -74,6 +55,11 @@ function zoomout(){
     const viewport = document.querySelector("#viewport");
     PDFGenerator.initPDFViewer("output.pdf");
   });
+
+  export let action;
+  export let action_setuju;
+  export let action_p_setuju;
+  export let action_p_tidaksetuju;
 </script>
 <style>
 .icon {
@@ -99,10 +85,10 @@ function zoomout(){
       <small  class="font-italic font-weight-small">Penawaran ini berlaku hingga <small>{dateTime}</small></small>
     </div>
     <div class="col-6">
-			<Button on:click={setuju}  name="agree2" block class="btn btn-block btn-danger" disabled>Setuju</Button>
+			<Button on:click={action_p_setuju}  name="agree2" block class="btn btn-block btn-danger" disabled>Setuju</Button>
 		</div>
     <div class="col-6">
-			<Button on:click={tidaksetuju} name="agree" block class="btn btn-block btn-secondary" disabled>Tidak Setuju</Button>
+			<Button on:click={action_p_tidaksetuju} name="agree" block class="btn btn-block btn-secondary" disabled>Tidak Setuju</Button>
 		</div>
     <Navbar id="zoom" class="navbar navbar-expand-xs fixed-bottom  shadow-sm mb-5 pb-5">  
     <ul class="navbar-nav  ml-auto">
@@ -113,8 +99,6 @@ function zoomout(){
     </ul>
   </Navbar>  
   </Navbar>
-  
-
 
   <div  id="setuju" style="display:none" class=" animate-bottom">	
     <Setuju />
@@ -138,5 +122,4 @@ function zoomout(){
     <Tidaksetuju/>  
   </div>
 {/if}
-
 </main>

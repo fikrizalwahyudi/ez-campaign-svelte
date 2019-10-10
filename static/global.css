@@ -182,5 +182,17 @@ code {
     text-align: center;
     
   }
+  input,
+  output,
+  [type=submit] {
+    font: inherit;
+    cursor: pointer;
+  }
+
+  [type=submit] {
+    float: right;
+  }
+
+
 
   
