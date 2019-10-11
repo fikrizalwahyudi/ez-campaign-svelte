@@ -10,7 +10,7 @@ let verification = '';
 function kirimulang(){
         let timeoutHandle;
         function countdown(minutes) {
-            let seconds = 5;
+            let seconds = 60;
             let mins = minutes;
         function tick() {
             let counter = document.getElementById("timer");
@@ -34,7 +34,7 @@ function kirimulang(){
         }
         tick();
     }
-    countdown(1);
+    countdown(5);
 }
 </script>
 
