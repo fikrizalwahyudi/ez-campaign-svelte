@@ -83,8 +83,16 @@ export function render() {
     const pagesHTML = `<div style="width: ${
         pageMode > 1 ? "100%" : "100%"
     }"><canvas id="zoom"></canvas></div>`.repeat(pages.length);
-    viewport.innerHTML = pagesHTML;
+    viewport.innerHTML = pagesHTML
+    +'<div class= "text-justify bg-white" style="margin:35px;">'
+    +'<p>Persetujuan atas pengajuan ini dilakukan dengan konfirmasi <i>one time password</i> (OTP)</p>'
+    +'<p class="text-justify">"Saya dengan ini menyetujui perubahan Polis sesuai dengan Manfaat Kesehatan yang tertera pada penawaran ini, dan akan diproses tanpa melalui permintaan pemeriksaan kesehatan jika status Polis tetap aktif serta sesuai dengan syarat dan ketentuan." </p>'
+    +'<p>klik <strong>Setuju</strong> untuk pengajuan perubahan Polis ini.</p>'
+    +'</div>';
+
+
     pages.forEach(renderPage);
+
     });
 }
 

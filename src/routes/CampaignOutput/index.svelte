@@ -61,8 +61,8 @@ function zoomout(){
 <style>
 .icon {
     color: #dc3545;
-    width: 21px;
-    height: 21px;
+    width: 20px;
+    height: 20px;
   }
 </style>
 <main>
@@ -74,17 +74,17 @@ function zoomout(){
       <div  role="main" id="viewport"></div>
     </div>
   </div> 
-  
+          
   <Navbar id="pager" class="navbar bg-white fixed-bottom shadow-lg">  
       <div class="col-12">
         <p class="pt-2">Apakah anda setuju dengan penawaran ini ?</p>
         <small  class="font-italic font-weight-small">Penawaran ini berlaku hingga <small>{dateTime}</small></small>
       </div>
       <div class="col-6">
-        <Button on:click={action_p_setuju}  name="agree2" block class="btn btn-block btn-danger" disabled>Setuju</Button>
+        <Button on:click={action_p_tidaksetuju} name="agree" block class="btn btn-block btn-secondary" disabled>Tidak Setuju</Button>
       </div>
       <div class="col-6">
-        <Button on:click={action_p_tidaksetuju} name="agree" block class="btn btn-block btn-secondary" disabled>Tidak Setuju</Button>
+        <Button on:click={action_p_setuju}  name="agree2" block class="btn btn-block btn-danger" disabled>Setuju</Button>
       </div>
       <Navbar id="zoom" class="navbar navbar-expand-xs fixed-bottom  shadow-sm mb-5 pb-5">  
       <ul class="navbar-nav  ml-auto">

@@ -10,6 +10,8 @@ export let action_setuju;
     let countdown;
     let countdown_number;
 
+    
+
     function kirimulang() {
         countdown_number = 6;
         waiting();
@@ -33,16 +35,19 @@ export let action_setuju;
 </script>
 
     <div id="container" class="mt-5 mb-5 pt-5 animate-bottom text-center" >
-        <h5>Verifikasi Persetujuan</h5>
-        <p class="text-center">Kami telah mengirim kode verifikasi via sms melalui no handphone anda. Masukkan kode verifikasi anda :</p>        
-        <Button id="kirimulang" class="btn btn-danger btn-block mt-2" on:click={kirimulang} style="display:block">Kirim Ulang Kode Verifikasi</Button>
-        <Button id="waiting" class="btn btn-secondary btn-block mt-2" style="display:none" disabled>Kirim Ulang Kode Verifikasi <span id="countdown_text"></span></Button>
+        
+        <p class="text-center">Kode OTP (One Time Password) telah dikirimkan melalui telepon selular Anda</p>
+        <p class="text-center">xxx-xxxx-1234</p>
+        <p class="text-center">berlaku:<span id="countdown_text"></span></p>
+                
+        <Button id="kirimulang" class="btn btn-danger btn-block mt-2" on:click={kirimulang} style="display:block">Kirim Ulang</Button>
+        <Button id="waiting" class="btn btn-secondary btn-block mt-2" style="display:none" disabled>Kirim Ulang</Button>
     </div>
 
     <form method="post" id="roles" on:submit|preventDefault={action_setuju}>  
-        <Input type="text" bind:value={verification} placeholder="Verification Code" />
+        <Input type="text" bind:value={verification} placeholder="Kode OTP" />
         <Navbar class="navbar bg-white fixed-bottom shadow-lg">
-            <input type="submit" class="btn btn-block btn-danger" disabled={!verification} value="Submit"/>
+            <input type="submit" class="btn btn-block btn-danger" disabled={!verification} value="Ajukan"/>
         </Navbar>
     </form>
 
