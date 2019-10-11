@@ -34,14 +34,13 @@ function zoomout(){
   import Button from '../../../node_modules/sveltestrap/src/Button';
   import ButtonGroup from '../../../node_modules/sveltestrap/src/ButtonGroup';
   import Navbar from '../../../node_modules/sveltestrap/src/Navbar';
-  import FaPlus from '../../../node_modules/svelte-icons/fa/FaPlus';
-  import FaMinus from '../../../node_modules/svelte-icons/fa/FaMinus';
+  import Zoomin from '../../../node_modules/svelte-icons/fa/FaPlus';
+  import Zoomout from '../../../node_modules/svelte-icons/fa/FaMinus';
 
   let today = new Date();
   let date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
   let time = "23:59";
   let dateTime = date+' '+time;
-  
   
   onMount(() => {
     document.getElementsByName("container_terms")[0].addEventListener("scroll", checkScrollHeight, false);
@@ -56,16 +55,14 @@ function zoomout(){
     PDFGenerator.initPDFViewer("output.pdf");
   });
 
-  export let action;
-  export let action_setuju;
   export let action_p_setuju;
   export let action_p_tidaksetuju;
 </script>
 <style>
 .icon {
-    color: black;
-    width: 15px;
-    height: 15px;
+    color: #dc3545;
+    width: 21px;
+    height: 21px;
   }
 </style>
 <main>
@@ -79,25 +76,24 @@ function zoomout(){
   </div> 
   
   <Navbar id="pager" class="navbar bg-white fixed-bottom shadow-lg">  
-
-    <div class="col-12">
-      <p class="pt-2">Apakah anda setuju dengan penawaran ini ?</p>
-      <small  class="font-italic font-weight-small">Penawaran ini berlaku hingga <small>{dateTime}</small></small>
-    </div>
-    <div class="col-6">
-			<Button on:click={action_p_setuju}  name="agree2" block class="btn btn-block btn-danger" disabled>Setuju</Button>
-		</div>
-    <div class="col-6">
-			<Button on:click={action_p_tidaksetuju} name="agree" block class="btn btn-block btn-secondary" disabled>Tidak Setuju</Button>
-		</div>
-    <Navbar id="zoom" class="navbar navbar-expand-xs fixed-bottom  shadow-sm mb-5 pb-5">  
-    <ul class="navbar-nav  ml-auto">
-        <div  class ="col-12  fixed mb-5">
-            <Button class ="btn btn-sm btn-light" on:click= {zoomin}><div class="icon"><FaPlus/></div></Button>
-            <Button class ="btn btn-sm btn-light" on:click= {zoomout}><div class="icon"><FaMinus/></div></Button>
-        </div>
-    </ul>
-  </Navbar>  
+      <div class="col-12">
+        <p class="pt-2">Apakah anda setuju dengan penawaran ini ?</p>
+        <small  class="font-italic font-weight-small">Penawaran ini berlaku hingga <small>{dateTime}</small></small>
+      </div>
+      <div class="col-6">
+        <Button on:click={action_p_setuju}  name="agree2" block class="btn btn-block btn-danger" disabled>Setuju</Button>
+      </div>
+      <div class="col-6">
+        <Button on:click={action_p_tidaksetuju} name="agree" block class="btn btn-block btn-secondary" disabled>Tidak Setuju</Button>
+      </div>
+      <Navbar id="zoom" class="navbar navbar-expand-xs fixed-bottom  shadow-sm mb-5 pb-5">  
+      <ul class="navbar-nav  ml-auto">
+          <div  class ="col-12  fixed mb-5">
+              <Button class="btn btn-light btn-sm "><div class="icon" on:click = {zoomin}><Zoomin/></div> </Button>
+              <Button class="btn btn-light btn-sm "><div class="icon" on:click = {zoomout}><Zoomout/></div></Button>
+          </div>         
+      </ul>
+    </Navbar>  
   </Navbar>
 
   <div  id="setuju" style="display:none" class=" animate-bottom">	

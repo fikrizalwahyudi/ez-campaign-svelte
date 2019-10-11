@@ -36,7 +36,6 @@
 	export let action_p_setuju;   
 	export let action_p_tidaksetuju;
    
-
 </script>
 
 <script>
@@ -69,7 +68,8 @@
 	}
 	const p_setuju = function(){
 		return page = "p_setuju";
-	}			
+	}
+
 	action = login;
 	action_setuju = setuju;
 	action_tidaksetuju = tidaksetuju;
@@ -83,7 +83,7 @@
 {:else if page === "campaign-output"}
 	<CampaignOutput {action_p_setuju} {action_p_tidaksetuju}/>
 {:else if page === "p_setuju"}
-	<Psetuju {action_setuju} {action_p_setuju}/>
+	<Psetuju {action_setuju} />
 {:else if page === "p_tidaksetuju"}
 	<PTidaksetuju {action_tidaksetuju}/>
 {:else if page === "setuju"}
