@@ -31,15 +31,13 @@ export let action_tidaksetuju;
             <h5 class="text-center mb-3">Mengapa pengajuan ini tidak disetujui ?</h5>
                 <div class="col-md-12">
                     <form method="post" id="roles" on:submit|preventDefault={action_tidaksetuju}>
-                    <div class="animate-bottom text-justify pt-5" >
+                    <div class="animate-bottom text-justify pt-5 pb-5" >
                         <CustomInput type="radio" id="Alasan 1" name="customRadio" label="Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.." /><br/>
                         <CustomInput type="radio" id="Alasan 2" name="customRadio" label="Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.." /><br/>
                         <CustomInput type="radio" id="Alasan 3" name="customRadio" label="Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.." /><br/>
                         <CustomInput type="radio" id="Alasan 4" name="customRadio" label="Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.." />
                     </div>                        
-                        <Navbar class="navbar bg-white fixed-bottom shadow-lg">
-                            <input type="submit" form="roles" id="submit" class="btn btn-block btn-danger" value="Submit" disabled/>
-                        </Navbar>  
+                        <input type="submit" form="roles" id="submit" class="btn btn-block btn-danger" value="Submit" disabled/> 
                     </form>      
                 </div>
 			</div>
