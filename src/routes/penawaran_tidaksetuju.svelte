@@ -20,19 +20,30 @@ export let action_tidaksetuju;
     }, false);  
   });
 </script>
-<style>
-</style>
-<div id="container" class="mt-5 mb-5 pt-5 animate-bottom text-center" >
-    <h5>Mengapa pengajuan ini tidak disetujui ?</h5>
+
+        
+
+
+<div class="row justify-content-center animate-bottom">
+	<div class="col-12" style="height: 100%; position: fixed;">
+		<div class="row mt-5 pt-5 justify-content-center align-items-center">
+			<div id="container" class="col-md-6">
+            <h5 class="text-center mb-3">Mengapa pengajuan ini tidak disetujui ?</h5>
+                <div class="col-md-12">
+                    <form method="post" id="roles" on:submit|preventDefault={action_tidaksetuju}>
+                    <div class="animate-bottom text-justify pt-5" >
+                        <CustomInput type="radio" id="Alasan 1" name="customRadio" label="Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.." /><br/>
+                        <CustomInput type="radio" id="Alasan 2" name="customRadio" label="Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.." /><br/>
+                        <CustomInput type="radio" id="Alasan 3" name="customRadio" label="Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.." /><br/>
+                        <CustomInput type="radio" id="Alasan 4" name="customRadio" label="Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.." />
+                    </div>                        
+                        <Navbar class="navbar bg-white fixed-bottom shadow-lg">
+                            <input type="submit" form="roles" id="submit" class="btn btn-block btn-danger" value="Submit" disabled/>
+                        </Navbar>  
+                    </form>      
+                </div>
+			</div>
+		</div>
+	</div>
 </div>
-    <form method="post" id="roles" on:submit|preventDefault={action_tidaksetuju}>
-        <div class="animate-bottom text-justify" >
-            <CustomInput type="radio" id="Alasan 1" name="customRadio" label="Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.." />
-            <CustomInput type="radio" id="Alasan 2" name="customRadio" label="Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.." />
-            <CustomInput type="radio" id="Alasan 3" name="customRadio" label="Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.." />
-            <CustomInput type="radio" id="Alasan 4" name="customRadio" label="Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.." />  
-        </div>
-        <Navbar class="navbar bg-white fixed-bottom shadow-lg">
-            <input type="submit" form="roles" id="submit" class="btn btn-block btn-danger" value="Submit" disabled/>
-        </Navbar>
-    </form>
+

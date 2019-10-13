@@ -37,16 +37,24 @@ function kirimulang(){
     countdown(5);
 }
 </script>
+<div class="row justify-content-center">
+	<div class="col-12" style="height: 100%; position: fixed;">
+		<div class="row mt-5 justify-content-center align-items-center">
+			<div class="col-md-6">
+				<div class="col-md-12">
+                    <p class="text-center">Kode OTP (One Time Password) telah dikirimkan melalui telepon selular Anda</p>
+                    <p class="text-center">xxx-xxxx-1234</p>
+                    <p class="text-center">berlaku: <span id="timer"></span></p>
+                    <Input type="text" bind:value={verification} placeholder="Kode OTP" />   
+                    <Button id="kirimulang" class="btn btn-danger btn-block mt-2" style="display:block" on:click={kirimulang} >Kirim Ulang</Button>
+                    <Button id="waiting" class="btn btn-secondary btn-block mt-2" style="display:none" disabled>Kirim Ulang</Button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 
-    <div id="container" class="mt-5 mb-5 pt-5 animate-bottom text-center" >
-        <p class="text-center">Kode OTP (One Time Password) telah dikirimkan melalui telepon selular Anda</p>
-        <p class="text-center">xxx-xxxx-1234</p>
-        <p class="text-center">berlaku: <span id="timer"></span></p>
-        <Input type="text" bind:value={verification} placeholder="Kode OTP" />   
-        <Button id="kirimulang" class="btn btn-danger btn-block mt-2" style="display:block" on:click={kirimulang} >Kirim Ulang</Button>
-        <Button id="waiting" class="btn btn-secondary btn-block mt-2" style="display:none" disabled>Kirim Ulang</Button>
-    </div>
-    <Navbar class="navbar bg-white fixed-bottom shadow-lg">
-            <input type="submit" class="btn btn-block btn-danger" disabled={!verification} on:click={action_setuju} value="Ajukan"/>
-    </Navbar>
+<Navbar class="navbar bg-white fixed-bottom shadow-lg">
+    <input type="submit" class="btn btn-block btn-danger" disabled={!verification} on:click={action_setuju} value="Ajukan"/>
+</Navbar>
 

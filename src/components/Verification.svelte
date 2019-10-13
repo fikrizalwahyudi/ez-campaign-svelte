@@ -32,22 +32,31 @@
 	
 
 </script>
-<div id="verification" class="row">
+<div id="verification" class="row justify-content-center">
 	<div class="col-12 bg-danger" style="height: 100%; position: fixed;">
-		<form id="validate" method="post" on:submit|preventDefault={action} class="mt-2 pt-5 text-light">	
-			<p class="text-center">Masukkan Password Anda dengan format sebagai berikut XXXXDDMmm</p>
-			<p class="text-center">Contoh (432115May)</p>
-			<ul class="text-justify">
-				<li>XXXX adalah 4 digit terakhir dari no. Polis Nasabah</li>
-				<li>DD adalah 2 digit tanggal lahir Pemegang Polis</li>
-				<li>Mmm adalah tiga huruf pertama bulan lahir Pemegang Polis dalam Bahasa Inggris. Huruf pertama adalah huruf besar dan selanjutnya huruf kecil, contoh Dec, May, Jun</li>
-			</ul>
-			<Input type="password" name="password" id="password" class="mb-2" placeholder="Password" required />
-			<input type="submit" id="submit" class="btn btn-block btn-secondary" value="Submit"/>
-		</form>
+		<div class="row mt-5 justify-content-center align-items-center text-white">
+			<div class="col-md-6">
+				<div class="col-md-12">
+					<form id="verification" class="form mt-5 pt-5" on:submit|preventDefault={action} method="post">
+						<p class="text-center">Masukkan Password Anda dengan format sebagai berikut XXXXDDMmm</p>
+						<p class="text-center">Contoh (432115May)</p>
+						<ul class="text-justify">
+							<li>XXXX adalah 4 digit terakhir dari no. Polis Nasabah</li>
+							<li>DD adalah 2 digit tanggal lahir Pemegang Polis</li>
+							<li>Mmm adalah tiga huruf pertama bulan lahir Pemegang Polis dalam Bahasa Inggris. Huruf pertama adalah huruf besar dan selanjutnya huruf kecil, contoh Dec, May, Jun</li>
+						</ul>
+						<div class="form-group">
+							<Input type="password" name="password" id="password" class="mb-2" placeholder="Password" required />
+						</div>
+						<div class="form-group">
+							<input type="submit" id="submit" class="btn btn-block btn-secondary" value="Submit"/>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
 	</div>
 </div>
-
 
 		<!-- <form id="validate" method="post" on:submit|preventDefault={verification}>
 			<Alert id="failed" class="text-center" color="danger" style="display:none">
