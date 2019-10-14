@@ -37,12 +37,12 @@ function kirimulang(){
     countdown(5);
 }
 </script>
-<div class="row justify-content-center">
+<div class="row justify-content-center animate-bottom mt-5 pt-5">
 	<div class="col-12" style="height: 100%; position: fixed;">
 		<div class="row mt-5 justify-content-center align-items-center">
-			<div class="col-md-6">
+			<div class="col-md-8">
 				<div class="col-md-12">
-                    <p class="text-center">Kode OTP (One Time Password) telah dikirimkan melalui telepon selular Anda</p>
+                    <p class="text-center">Kode OTP (One Time Password) telah dikirimkan melalui telepon selular anda</p>
                     <p class="text-center">xxx-xxxx-1234</p>
                     <p class="text-center">berlaku: <span id="timer"></span></p>
                     <Input type="text" bind:value={verification} placeholder="Kode OTP" />   
