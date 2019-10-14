@@ -7,7 +7,7 @@ import Navbar from '../../node_modules/sveltestrap/src/Navbar';
 export let action_setuju;
 
 let verification = '';              
-function kirimulang(){
+export function kirimulang(){
         let timeoutHandle;
         function countdown(minutes) {
             let seconds = 60;
@@ -54,3 +54,4 @@ function kirimulang(){
 		</div>
 	</div>
 </div>
+<svelte:window on:load={kirimulang}/>
