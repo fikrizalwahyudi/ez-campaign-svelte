@@ -28,16 +28,17 @@ export let action_tidaksetuju;
 	<div class="col-12" style="height: 100%; position: fixed;">
 		<div class="row mt-5 pt-5 justify-content-center align-items-center">
 			<div id="container" class="col-md-6">
-            <h5 class="text-center mb-3">Mengapa pengajuan ini tidak disetujui ?</h5>
+            <h5 class="text-center mb-3">Pengajuan Tidak Setuju</h5>
                 <div class="col-md-12">
                     <form method="post" id="roles" on:submit|preventDefault={action_tidaksetuju}>
                     <div class="animate-bottom text-justify pt-5 pb-5" >
-                        <CustomInput type="radio" id="Alasan 1" name="customRadio" label="Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.." /><br/>
-                        <CustomInput type="radio" id="Alasan 2" name="customRadio" label="Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.." /><br/>
-                        <CustomInput type="radio" id="Alasan 3" name="customRadio" label="Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.." /><br/>
-                        <CustomInput type="radio" id="Alasan 4" name="customRadio" label="Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.." />
+                        <p class="text-justify">Terima kasih atas konfirmasi anda. Mohon pilih alasan ketidaksetujuan anda atas penawaran tersebut :</p>
+                        <CustomInput type="radio" id="Alasan 1" name="customRadio" label="Premi tidak sesuai." />
+                        <CustomInput type="radio" id="Alasan 2" name="customRadio" label="Manfaat Kesehatan yang ditawarkan tidak sesuai." />
+                        <CustomInput type="radio" id="Alasan 3" name="customRadio" label="Belum berminat atas penawaran." /><br/>
+                        <p class="text-justify">Hubungi Tenaga Pemasar Anda untuk informasi lebih lanjut.</p>
                     </div>                        
-                        <input type="submit" form="roles" id="submit" class="btn btn-block btn-danger" value="Submit" disabled/> 
+                        <input type="submit" form="roles" id="submit" class="btn btn-block btn-danger" value="Tutup" disabled/> 
                     </form>      
                 </div>
 			</div>
