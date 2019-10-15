@@ -4,6 +4,12 @@ export let cursorIndex = Math.floor(currentPageIndex / pageMode);
 export let pdfInstance = null;
 export let totalPagesCount = 0;
 
+
+export let today = new Date();
+export let date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+export let time = "23:59";
+export let dateTime = date+' '+time;
+
 // export const viewport = document.querySelector("#viewport");
 export const initPDFViewer = function(pdfURL) {
     pdfjsLib.getDocument(pdfURL).then(pdf => {
@@ -90,7 +96,6 @@ export function render() {
     +'<p>klik <strong>Setuju</strong> untuk pengajuan perubahan Polis ini.</p>'
     +'</div>';
 
-
     pages.forEach(renderPage);
 
     });
@@ -111,6 +116,28 @@ export function renderPage(page) {
     viewport: pdfViewport,
     });
 }
+
+//Zoom PDF Viewer
+export function zoomin(){
+    var pdfzoom = document.getElementById("viewport");
+    var currWidth = pdfzoom.clientWidth;
+    if(currWidth == 2500) return false;
+     else{
+        pdfzoom.style.width = (currWidth + 100) + "px";
+    } 
+}
+
+export function zoomout(){
+    var pdfzoom = document.getElementById("viewport");
+    var currWidth = pdfzoom.clientWidth;
+    if(currWidth == 100) return false;
+     else{
+        pdfzoom.style.width = (currWidth - 100) + "px";
+    }
+}
+
+
+
 
 
 

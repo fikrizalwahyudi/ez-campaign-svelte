@@ -1,9 +1,13 @@
+<svelte:head>
+	<title>Verifikasi Password</title>
+</svelte:head>
+
 <script>
-    import CampaignOutput from '../routes/CampaignOutput/index';
-	import * as PDFGenerator from '../routes/CampaignOutput/PDFGenerator';
-	import Alert from '../components/Alert' 
-	import Input from '../../node_modules/sveltestrap/src/Input';
-	import Button from '../../node_modules/sveltestrap/src/Button';
+    import CampaignOutput from '../../easy-campaign/CampaignOutput/index';
+	import * as PDFGenerator from '../../easy-campaign/CampaignOutput/PDFGenerator';
+	import Alert from '../../../components/Alert' 
+	import Input from '../../../../node_modules/sveltestrap/src/Input';
+	import Button from '../../../../node_modules/sveltestrap/src/Button';
 	// var loading;
 	// var attempt = 3; 
 	export let action;
@@ -49,7 +53,7 @@
 							<Input type="password" name="password" id="password" class="mb-2" placeholder="Password" required />
 						</div>
 						<div class="form-group">
-							<input type="submit" id="submit" class="btn btn-block btn-secondary" value="Submit"/>
+							<a href="easy-campaign/CampaignOutput"><input type="submit" id="submit" class="btn btn-block btn-secondary" value="Submit"/></a>
 						</div>
 					</form>
 				</div>
