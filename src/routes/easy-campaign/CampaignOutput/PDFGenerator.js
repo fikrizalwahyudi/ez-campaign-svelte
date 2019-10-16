@@ -4,7 +4,6 @@ export let cursorIndex = Math.floor(currentPageIndex / pageMode);
 export let pdfInstance = null;
 export let totalPagesCount = 0;
 
-
 export let today = new Date();
 export let date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
 export let time = "23:59";
@@ -60,6 +59,7 @@ export function onPageModeChange(event) {
     pageMode = Number(event.target.value);
     render();
 }
+
 export function initPageMode() {
     const input = document.querySelector("#page-mode input");
     input.setAttribute("max", totalPagesCount);
