@@ -1,4 +1,3 @@
-<svelte:window on:load={Setuju.kirimulang}/>
 <svelte:head>
 	<title>Konfirmasi Penawaran Setuju</title>
 </svelte:head>
@@ -11,8 +10,13 @@ import Input from '../../../../node_modules/sveltestrap/src/Input';
 import Button from '../../../../node_modules/sveltestrap/src/Button';
 import Navbar from '../../../../node_modules/sveltestrap/src/Navbar';
 
-let verification = '';  
+  
 // export let action_setuju;
+let verification='';
+ onMount(() => {
+    Setuju.countdown(1);
+});
+
 </script>
 
 <div class="row justify-content-center animate-bottom mt-5 pt-5" >
