@@ -22,7 +22,7 @@ export function count_otp(){
 export function kirimulang(){
     clearInterval(x);
     count_otp();
-    let countDownDate = new Date(Date.now() + 20000).getTime(); // Update the count down every 1 second
+    let countDownDate = new Date(Date.now() + 62000).getTime(); // Update the count down every 1 second
     let y = setInterval(function() { // Get todays date and time
         let now = new Date().getTime();
         let distance = countDownDate - now;// Find the distance between now and the count down date
