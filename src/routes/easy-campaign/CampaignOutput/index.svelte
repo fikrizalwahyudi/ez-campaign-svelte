@@ -32,14 +32,13 @@ let flag_tidaksetuju = false;
 
   });
 
-  // export let action_p_setuju;
-  // export let action_p_tidaksetuju;
 </script>
+
 <style>
   .icon {
-    color: #dc3545;
-    width: 15px;
-    height: 15px;
+    color: #6c757d;
+    width: 26px;
+    height: 26px;
   }
 </style>
 
@@ -55,7 +54,7 @@ let flag_tidaksetuju = false;
   <Navbar id="pager" class="navbar bg-white fixed-bottom shadow-lg">  
       <div class="col-12">
         <p class="pt-2">Apakah anda setuju dengan penawaran ini ?</p>
-        <small  class="font-italic font-weight-small">Penawaran ini berlaku hingga <small>{PDFGenerator.dateTime}</small></small>
+        <small  class="font-italic font-weight-small">Penawaran ini berlaku hingga <strong class="text-danger">{PDFGenerator.dateTime}</strong></small>
       </div>
       <div class="col-6">
         <a href="easy-campaign/Penawaran_tidaksetuju"><Button  name="agree" block class="btn btn-block btn-secondary" disabled>Tidak Setuju</Button></a>
@@ -66,7 +65,7 @@ let flag_tidaksetuju = false;
       <Navbar id="zoom" class="navbar navbar-expand-xs fixed-bottom  shadow-sm mb-5 pb-5">  
       <ul class="navbar-nav  ml-auto">
           <div  class ="col-12  fixed mb-5">
-              <Button class="btn btn-light btn-sm " style="border-radius:50px;"><div class="icon" on:click = {PDFGenerator.zoomin}><Zoomin/></div> </Button>
+              <Button class="btn btn-light btn-sm "><div class="icon" on:click = {PDFGenerator.zoomin}><Zoomin/></div> </Button>
               <Button class="btn btn-light btn-sm "><div class="icon" on:click = {PDFGenerator.zoomout}><Zoomout/></div></Button>
           </div>         
       </ul>
@@ -83,14 +82,12 @@ let flag_tidaksetuju = false;
 {/if}
 
 {#if flag_setuju}
-  <!-- <div  id="setuju" style="display:none" class=" animate-bottom">	 -->
   <div  id="setuju" style="display:block" class=" animate-bottom">	
     <Setuju />
   </div>
 {/if}
 
 {#if flag_tidaksetuju} 
-  <!-- <div  id="tidaksetuju" style="display:none" class=" animate-bottom">	 -->
   <div  id="tidaksetuju" style="display:block" class=" animate-bottom">	 
     <Tidaksetuju/>  
   </div>

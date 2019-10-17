@@ -11,8 +11,6 @@ import Button from '../../../../node_modules/sveltestrap/src/Button';
 import Navbar from '../../../../node_modules/sveltestrap/src/Navbar';
 	import Loading from '../../../components/Loading'; 
 
-  
-// export let action_setuju;
 let verification='';
  onMount(() => {
     Setuju.count_otp();
