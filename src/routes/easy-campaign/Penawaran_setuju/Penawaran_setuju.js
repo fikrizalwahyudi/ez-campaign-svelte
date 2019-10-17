@@ -3,7 +3,7 @@ export let timeoutHandle;
 export let x;
 export function count_otp(){
 
-    let countDownDate = new Date(Date.now() + 60000).getTime(); // Update the count down every 1 second
+    let countDownDate = new Date(Date.now() + 302000).getTime(); // Update the count down every 1 second
     x = setInterval(function() { // Get todays date and time
         let now = new Date().getTime();
         let distance = countDownDate - now;// Find the distance between now and the count down date
