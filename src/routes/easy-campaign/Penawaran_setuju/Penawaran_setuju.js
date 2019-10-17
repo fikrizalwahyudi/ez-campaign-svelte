@@ -10,7 +10,7 @@ export function count_otp(){
         let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));   // Time calculations for days, hours, minutes and seconds
         let seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-        document.getElementById("expire").innerHTML = minutes + ":" + seconds;   // Output the result in an element with id="demo"
+        document.getElementById("expire").innerHTML = "Berlaku : " + "<b class='text-danger'>" + minutes + ":" + seconds; "</b>"   // Output the result in an element with id="demo"
         if (distance < 0) {  // If the count down is over, write some text 
             clearInterval(x);
             document.getElementById("expire").innerHTML = "OTP Code EXPIRED !";

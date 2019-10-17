@@ -9,7 +9,7 @@ import * as Setuju from '../Penawaran_setuju/Penawaran_setuju';
 import Input from '../../../../node_modules/sveltestrap/src/Input';
 import Button from '../../../../node_modules/sveltestrap/src/Button';
 import Navbar from '../../../../node_modules/sveltestrap/src/Navbar';
-
+	import Loading from '../../../components/Loading'; 
 
   
 // export let action_setuju;

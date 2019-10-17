@@ -38,8 +38,8 @@ let flag_tidaksetuju = false;
 <style>
   .icon {
     color: #dc3545;
-    width: 20px;
-    height: 20px;
+    width: 15px;
+    height: 15px;
   }
 </style>
 
@@ -66,7 +66,7 @@ let flag_tidaksetuju = false;
       <Navbar id="zoom" class="navbar navbar-expand-xs fixed-bottom  shadow-sm mb-5 pb-5">  
       <ul class="navbar-nav  ml-auto">
           <div  class ="col-12  fixed mb-5">
-              <Button class="btn btn-light btn-sm "><div class="icon" on:click = {PDFGenerator.zoomin}><Zoomin/></div> </Button>
+              <Button class="btn btn-light btn-sm " style="border-radius:50px;"><div class="icon" on:click = {PDFGenerator.zoomin}><Zoomin/></div> </Button>
               <Button class="btn btn-light btn-sm "><div class="icon" on:click = {PDFGenerator.zoomout}><Zoomout/></div></Button>
           </div>         
       </ul>

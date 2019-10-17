@@ -9,9 +9,11 @@
         }
     });
 </script>
+
 <style>
+
 /* Absolute Center Spinner */
-.loading {
+#loading {
   position: fixed;
   z-index: 999;
   height: 2em;
@@ -25,7 +27,7 @@
 }
 
 /* Transparent Overlay */
-.loading:before {
+#loading:before {
   content: '';
   display: block;
   position: fixed;
@@ -33,13 +35,13 @@
   left: 0;
   width: 100%;
   height: 100%;
-    background: radial-gradient(rgba(20, 20, 20,.8), rgba(0, 0, 0, .8));
+  background: radial-gradient(rgba(20, 20, 20,.8), rgba(0, 0, 0, .8));
 
   background: -webkit-radial-gradient(rgba(20, 20, 20,.8), rgba(0, 0, 0,.8));
 }
 
 /* :not(:required) hides these rules from IE9 and below */
-.loading:not(:required) {
+#loading:not(:required) {
   /* hide "loading..." text */
   font: 0/0 a;
   color: transparent;
@@ -48,7 +50,7 @@
   border: 0;
 }
 
-.loading:not(:required):after {
+#loading:not(:required):after {
   content: '';
   display: block;
   font-size: 10px;
@@ -131,7 +133,9 @@ box-shadow: rgba(255,255,255, 0.75) 1.5em 0 0 0, rgba(255,255,255, 0.75) 1.1em 1
     transform: rotate(360deg);
   }
 }
+
 </style>
+
 <div id="loading" style="display:block">Loading&#8230;</div>
 
 
