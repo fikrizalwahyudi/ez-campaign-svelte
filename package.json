@@ -36,7 +36,7 @@
     "@fortawesome/fontawesome-free": "^5.11.2",
     "@sveltejs/svelte-virtual-list": "^3.0.1",
     "npm-run-all": "^4.1.5",
-    "sapper": "^0.27.0",
+    "sapper": "^0.27.11",
     "svelte": "^3.12.1",
     "svelte-loader": "^2.9.0",
     "webpack": "^4.7.0"
