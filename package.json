@@ -21,7 +21,7 @@
     "express": "^4.17.1",
     "express-session": "^1.16.2",
     "glyphicons": "^0.2.0",
-    "node-fetch": "^2.6.0",
+    "node-fetch": "^2.6.1",
     "path": "^0.12.7",
     "polka": "next",
     "query-string": "^6.8.3",
