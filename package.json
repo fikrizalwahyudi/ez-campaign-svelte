@@ -17,7 +17,7 @@
     "compression": "^1.7.1",
     "connect-redis": "^4.0.2",
     "cors": "^2.8.5",
-    "docxtemplater": "^3.14.3",
+    "docxtemplater": "^3.31.4",
     "express": "^4.17.1",
     "express-session": "^1.16.2",
     "glyphicons": "^0.2.0",
